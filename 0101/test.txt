@@ -1,1 +1,141 @@
-test
+Commandlet
+In PowerShell, commands are called cmdlets.
+We can complete the cmdlet by typing Tab.
+
+Alias
+A cmdlet is defined according to the <verb>-<noun> naming convention.
+We can check the help of the cmdlet by using help <commandlet name>.
+
+# comment
+
+<#
+comments
+#>
+
+$val = "Hoge"
+echo $val
+
+
+String literal
+$a = "aaa"
+echo "$a test" #aaa test
+echo '$a test' #$a test
+echo "$a_test" #aaa
+echo "${a}_test" #aaa_test
+
+`t is a tab
+`r is a carriage return
+`n is a line break
+`" Is double quotes
+
+echo ("a" + "b") #ab
+
+
+Array
+$array = "A", "B", "C"
+echo $array.GetType().Name  #Object[]
+echo ($array[0] + ", " + $array[1] + ", " + $array[2]) #A, B, C
+
+$array = @() #null
+
+$array = 1..10
+echo ('$array = ' + $array)#1 2 3 4 5 6 7 8 9 10
+
+foreach ($i in @(0, 1, 2)) {
+    echo $i
+}
+#or
+for ($i = 0; $i -lt 3; $i++) {
+    echo $i
+}
+#or
+$i = 0
+
+while ($i -lt 3) {
+    echo $i
+    $i++
+}
+#0
+#1
+#2
+
+IF
+if ($true) {
+    echo "hoge"  #true 1  x
+}
+
+if ($false) {
+    echo "fuga"
+}
+
+
+
+if ($true) {
+    #...
+} elseif ($false) {
+    #...
+} else {
+    #...
+}
+
+
+
+Operator symbol
+-eq	==
+-ne	!=
+-gt	>
+-ge	>=
+-lt	<
+-le	<=
+
+
+-like, 
+string comparison using wildcards.
+-match, 
+compare strings using regular expressions.
+Each has a negated form with not prepended (-notlike, -notmatch).
+
+Operator symbol
+-and	&&
+-or	||
+-not, -!	!
+
+
+
+$num = 10
+$ans =10
+switch ($num) {
+    $ans {
+        echo "A"
+    }
+    "test" {
+        echo "B"
+    }
+    10 {
+        echo "C"
+    }
+}
+#A
+#C
+
+switch -wildcard ("ABC") {
+    "A*" {
+        echo "AA"
+    }
+    "DEF*" {
+        echo "BB"
+    }
+}
+
+
+
+Param([string] $one, $two)
+echo ($one + ", " + $two)
+
+> .\script.ps1 AA 10
+AA, 10
+
+
+
+
+
